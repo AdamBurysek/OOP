@@ -1,43 +1,40 @@
-function mixin(target, ...sources) {
-    Object.assign(target, ...sources);
-};
 
-const canEat = {
-    eat: function () {
-        this.hunger--;
-        console.log('eating');
-    }
-};
 
-const canWalk = {
-    walk: function () {
-        console.log('waling');
-    }
-};
-
-const canSwim = {
-    swim: function () {
-        console.log('swim');
+function HtmlElement() {
+    this.click = function () {
+        console.log('click');
     }
 }
 
-function Person() {
+HtmlElement.prototype.focus = function () {
+    console.log('focus');
 }
 
-// Object.assign(Person.prototype, canEat, canWalk)
+HtmlSelectElement.prototype = new HtmlElement()
+HtmlSelectElement.prototype.constructor = HtmlSelectElement
 
-mixin(Person, canEat, canWalk);
+function HtmlSelectElement() {
+    this.items = [];
 
-const person = new Person();
+    if (arguments.length > 0) {
+        for (let i = 0; i < arguments.length; i++) {
+            this.items.push(arguments[i]);
+        }
+    }
 
-console.log(person);
-
-function Goldfish() {
+    this.addItem = function (item) {
+        this.items.push(item)
+        console.log('Item was added');
+    }
+    this.removeItem = function (itemToRemove) {
+        if (this.items.includes(itemToRemove)) {
+            this.items = this.items.filter(item => item !== itemToRemove);
+            console.log('Item was removed');
+        } else {
+            console.log(`${itemToRemove} is not in the array.`);
+        }
+    }
 }
 
-// Object.assign(Goldfish.prototype, canEat, canSwim)
-mixin(Goldfish, canEat, canSwim);
-
-const goldfish = new Goldfish();
-
-console.log(goldfish);
+const e = new HtmlElement()
+const s = new HtmlSelectElement()

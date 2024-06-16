@@ -11,7 +11,7 @@ Circle.prototype = Object.create(Shape.prototype)
 // new Circle.prototype.constructor(1) will be Circle and not Shape
 Circle.prototype.constructor = Circle
 
-// Best i make extend function
+// Best is make extend function
 // function extend(Child, Parent) {
 //     Child.prototype = Object.create(Parent.prototype)
 //     Child.prototype.constructor = Child
