@@ -41,7 +41,7 @@ function HtmlImageElement(src) {
     this.src = src
 
     this.render = function () {
-        console.log(`<img src=${src} />`)
+        console.log(`<img src="${src}" />`)
     }
 }
 

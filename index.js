@@ -1,58 +1,19 @@
-function HtmlElement() {
-    this.click = function () {
-        console.log('click');
-    }
+// Function Declaration
+// Hoisted
+function sayHello() { }
+
+// Function Expression (add ; to end!)
+// Not Hoisted
+const sayGoodbye = function () { };
+
+// Class Declaration
+// Not Hoisted
+class Circle {
+
 }
 
-HtmlElement.prototype.focus = function () {
-    console.log('focus');
-}
+// Class Expression (add ; to end!)
+// Not Hoisted
+const square = class {
 
-HtmlSelectElement.prototype = new HtmlElement()
-HtmlSelectElement.prototype.constructor = HtmlSelectElement
-
-function HtmlSelectElement(items = []) {
-    this.items = items;
-
-
-    this.addItem = function (item) {
-        this.items.push(item)
-        console.log('Item was added');
-    }
-    this.removeItem = function (itemToRemove) {
-        if (this.items.includes(itemToRemove)) {
-            this.items = this.items.filter(item => item !== itemToRemove);
-            console.log('Item was removed');
-        } else {
-            console.log(`${itemToRemove} is not in the array.`);
-        }
-    }
-    this.render = function () {
-        console.log("<select>")
-        this.items.map((item) => console.log(`<option>${item}</option>`))
-        console.log('</select>');
-    }
-}
-
-HtmlImageElement.prototype = new HtmlElement()
-HtmlImageElement.prototype.constructor = HtmlImageElement
-
-function HtmlImageElement(src) {
-    this.src = src
-
-    this.render = function () {
-        console.log(`<img src=${this.src} />`)
-    }
-}
-
-const e = new HtmlElement()
-const s = new HtmlSelectElement()
-const i = new HtmlImageElement()
-
-const elements = [
-    new HtmlSelectElement([1, 2, 3]),
-    new HtmlImageElement('https://')
-];
-
-for (let element of elements)
-    console.log(element.render());
+};
