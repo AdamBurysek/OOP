@@ -8,12 +8,14 @@ class Stack {
     }
 
     peek() {
-        if (_array.get(this).length === 0) throw new Error('Stack is empty');
-        return _array.get(this)[_array.get(this).length - 1]
+        const array = _array.get(this);
+        if (array.length === 0) throw new Error('Stack is empty');
+        return array[array.length - 1]
     }
     pop() {
-        if (_array.get(this).length === 0) throw new Error('Stack is empty');
-        return _array.get(this).pop()
+        const array = _array.get(this);
+        if (array.length === 0) throw new Error('Stack is empty');
+        return array.pop()
     }
     push(obj) {
         _array.get(this).push(obj);
