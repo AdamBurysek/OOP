@@ -1,27 +1,5 @@
-const _array = new WeakMap();
+import Circle from "./circleEsModule.js";
 
+const c = new Circle(10);
 
-class Stack {
-    constructor() {
-        _array.set(this, [])
-
-    }
-
-    peek() {
-        if (_array.get(this).length === 0) throw new Error('Stack is empty');
-        return _array.get(this)[_array.get(this).length - 1]
-    }
-    pop() {
-        if (_array.get(this).length === 0) throw new Error('Stack is empty');
-        return _array.get(this).pop()
-    }
-    push(obj) {
-        _array.get(this).push(obj);
-    }
-
-    get count() {
-        return _array.get(this).length;
-    }
-
-}
-const s = new Stack();
+c.draw()
